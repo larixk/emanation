@@ -1,5 +1,6 @@
 {
-  "name": "skyline",
+  "name": "emanation",
+  "description": "Emanation by Larix Kortbeek, 2016",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",

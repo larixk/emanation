@@ -17,12 +17,12 @@ export default ({ hue, ctx }) => {
   tileCtx.fill();
 
   tileCtx.beginPath();
-  tileCtx.fillStyle = `hsla(${hue}, 80%, 80%, 1)`;
+  tileCtx.fillStyle = `hsla(${hue + 60}, 90%, 50%, 1)`;
   tileCtx.rect(1, 1, 1, 1);
   tileCtx.fill();
 
   tileCtx.beginPath();
-  tileCtx.fillStyle = `hsla(${hue + 60}, 10%, 30%, 1)`;
+  tileCtx.fillStyle = `hsla(${hue + 60}, 10%, 20%, 1)`;
   tileCtx.rect(1, 0, 1, 1);
   tileCtx.fill();
 

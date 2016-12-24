@@ -28,7 +28,7 @@ export default () => {
 
     const ctx = canvas.getContext('2d');
     ctx.imageSmoothingEnabled = false;
-    ctx.globalAlpha = 0.8;
+    ctx.globalAlpha = 0.7;
   };
 
   window.addEventListener('resize', resize);
