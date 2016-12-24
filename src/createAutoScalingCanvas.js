@@ -1,26 +1,26 @@
-const margin = 20;
-const bodyStyle = {
-  overflow: 'hidden',
-  margin: 0,
-};
-const canvasStyle = {
-  display: 'block',
-  margin: '0 auto',
-  borderRadius: '50%',
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-};
-
 export default () => {
   const canvas = document.createElement('canvas');
   document.body.appendChild(canvas);
 
+  const bodyStyle = {
+    overflow: 'hidden',
+    margin: 0,
+  };
   Object.assign(document.body.style, bodyStyle);
+
+  const canvasStyle = {
+    display: 'block',
+    margin: '0 auto',
+    borderRadius: '50%',
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+  };
   Object.assign(canvas.style, canvasStyle);
 
   const resize = () => {
-    const size = Math.min(window.innerWidth, window.innerHeight) - margin;
+    const marginAroundCanvas = 20;
+    const size = Math.min(window.innerWidth, window.innerHeight) - marginAroundCanvas;
     canvas.width = size;
     canvas.height = size;
     canvas.style.marginLeft = `-${size / 2}px`;

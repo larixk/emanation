@@ -1,18 +1,22 @@
 import createPattern from './createPattern';
+import wave from './wave';
 
 export default (state) => {
-  const newState = state;
+  const newState = {};
   const timeSinceStart = new Date().getTime() - state.start;
 
-  newState.rotation = Math.sin(timeSinceStart / 48123) * Math.PI;
-  newState.scale = 1 + (Math.sin(timeSinceStart / 32345) * 0.5);
+  const rotationDuration = 48123;
+  newState.rotation = wave(timeSinceStart, rotationDuration) * Math.PI;
 
-  if (newState.frame % 30 === 0) {
-    newState.hue += 1;
-    newState.pattern = createPattern(newState);
+  const scaleDuration = 32345;
+  newState.scale = 1 + (wave(timeSinceStart, scaleDuration) * 0.5);
+
+  if (state.frame % 30 === 0) {
+    newState.hue = state.hue + 1;
+    newState.pattern = createPattern(state);
   }
 
-  newState.frame += 1;
+  newState.frame = state.frame + 1;
 
-  return newState;
+  return Object.assign({}, state, newState);
 };
