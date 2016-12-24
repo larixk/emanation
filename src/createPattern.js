@@ -1,9 +1,8 @@
-const patternSize = 2;
-
 const tile = document.createElement('canvas');
 const tileCtx = tile.getContext('2d');
 
 export default ({ hue, ctx }) => {
+  const patternSize = 2;
   tile.width = patternSize;
   tile.height = patternSize;
 
