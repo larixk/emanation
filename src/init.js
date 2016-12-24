@@ -1,23 +1,15 @@
-const initialState = {
+import createAutoScalingCanvas from './createAutoScalingCanvas';
+import createCenterDot from './createCenterDot';
+
+const canvas = createAutoScalingCanvas();
+createCenterDot();
+
+export default () => Promise.resolve({
+  canvas,
+  ctx: canvas.getContext('2d'),
+  start: new Date().getTime() - 6000,
+  frame: 0,
   rotation: 0,
-  translate: 0,
   scale: 1,
-  start: new Date().getTime() - 5000,
-};
-
-
-const cover = document.createElement('div');
-cover.style.display = 'block';
-cover.style.width = '16px';
-cover.style.height = '16px';
-cover.style.background = 'white';
-cover.style.zIndex = 10;
-cover.style.position = 'absolute';
-cover.style.top = '50%';
-cover.style.left = '50%';
-cover.style.marginLeft = '-8px';
-cover.style.marginTop = '-8px';
-cover.style.borderRadius = '50%';
-
-document.body.appendChild(cover);
-export default () => Promise.resolve(initialState);
+  hue: Math.floor(Math.random() * 360),
+});
