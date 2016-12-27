@@ -1,28 +1,30 @@
 const tile = document.createElement('canvas');
 const tileCtx = tile.getContext('2d');
 
-export default ({ hue, ctx }) => {
+export default ({ ctx }) => {
+  const hue = Math.floor(Math.random() * 360);
+  const otherHue = Math.floor(Math.random() * 360);
   const patternSize = 2;
   tile.width = patternSize;
   tile.height = patternSize;
 
   tileCtx.beginPath();
-  tileCtx.fillStyle = `hsla(${hue}, 90%, 50%, 1)`;
+  tileCtx.fillStyle = `hsla(${hue}, 100%, 60%, 1)`;
   tileCtx.rect(0, 0, 1, 1);
   tileCtx.fill();
 
   tileCtx.beginPath();
-  tileCtx.fillStyle = `hsla(${hue}, 0%, 100%, 1)`;
+  tileCtx.fillStyle = `hsla(${hue}, 100%, 80%, 1)`;
   tileCtx.rect(0, 1, 1, 1);
   tileCtx.fill();
 
   tileCtx.beginPath();
-  tileCtx.fillStyle = `hsla(${hue + 60}, 90%, 50%, 1)`;
+  tileCtx.fillStyle = `hsla(${otherHue}, 100%, 40%, 1)`;
   tileCtx.rect(1, 1, 1, 1);
   tileCtx.fill();
 
   tileCtx.beginPath();
-  tileCtx.fillStyle = `hsla(${hue + 60}, 10%, 20%, 1)`;
+  tileCtx.fillStyle = `hsla(${otherHue}, 100%, 30%, 1)`;
   tileCtx.rect(1, 0, 1, 1);
   tileCtx.fill();
 
