@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const packageConfig = require('./package.json');
 
 module.exports = {
-  entry: './main.js',
+  entry: './js1k.js',
   output: { path: 'dist', filename: 'bundle.js' },
   plugins: [new HtmlWebpackPlugin({
     inject: true,
